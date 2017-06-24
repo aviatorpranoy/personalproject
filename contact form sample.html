@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Form</title>
+	<style>
+	h3
+	{
+		color: #1AF55B;
+		font-family: Helvetica;
+	}
+	#nw
+	{
+		display: block;
+    	margin: auto;
+		border: 2px solid white;
+		padding: 10px 10px 10px 10px;
+		height: 200px;
+		width: 200px;
+	}
+	table
+	{
+		color: #FFFFFF;
+		border: 2px dashed red;
+	}
+	#sec1
+	{
+		color: #1CE4FA;
+		font-family: Courier;
+		font-size: ="large";
+	}
+	#sec2
+	{
+		color: #FFFFFF;
+		font-family: Cursive;
+	}
+
+</style>
+	<script type="text/javascript" language="javascript">
+	function validate() 
+	{
+    	var x = document.forms["myForm"]["fname"].value;
+		var y = document.forms["myForm"]["lname"].value;
+		var e = document.forms["myForm"]["email"].value;
+		var ex = document.forms["myForm"]["ex"].value;
+		var u = document.forms["myForm"]["uname"].value;
+    	var ph = document.forms["myForm"]["phone"].value;
+    	var ks = document.forms["myForm"]["ks"].value;
+    	var pwd = document.forms["myForm"]["pwd"].value;
+    	var rpwd = document.forms["myForm"]["rpwd"].value;
+		var loc = document.forms["myForm"]["loc"].value;
+		var se = document.forms["myForm"]["se"].value;
+		var ug = document.forms["myForm"]["ug"].value;
+		var pg = document.forms["myForm"]["pg"].value;
+		var phd = document.forms["myForm"]["phd"].value;
+
+		//Create Your Account
+    	if (u == "") 
+    	{
+        	alert("Userame must be filled out");
+        	return false;
+    	}
+
+    	pwd=pwd.trim();
+    	if(pwd=="")
+    	{
+    		alert("Password is must ");
+        	return false;
+    	}
+
+    	rpwd=rpwd.trim();
+    	if(rpwd=="")
+    	{
+    		alert("Re-type Password is must ");
+        	return false;
+    	}
+
+    	if (e == "") 
+    	{
+        	alert("Email must be filled out");
+        	return false;
+    	}
+
+    	u=u.trim();
+    	if(u.length<2)
+    	{
+    		alert("Your Username is just "+u.length);
+        	return false;
+    	}
+
+    	e=e.trim();
+    	if(e.length<2)
+    	{
+    		alert("Your Email is just "+e.length);
+        	return false;
+    	}
+
+    	//Personal Details
+    	if (x == "") 
+    	{
+        	alert("First Name must be filled out");
+        	return false;
+    	}
+		if (y == "") 
+		{
+        	alert("Last Name must be filled out");
+        	return false;
+    	}
+    	if (ph == "") {
+        	alert("Phone must be filled out");
+        	return false;
+    	}
+
+    	if (loc == "loc") {
+        	alert("Location must be filled out");
+        	return false;
+    	}
+
+    	x=x.trim();
+    	if(x.length<2)
+    	{
+    		alert("Your first name is just "+x.length);
+        	return false;
+    	}
+		y=y.trim();
+    	if(y.length<2){
+    	alert("Your last name is just "+y.length);
+        	return false;
+    	}
+
+    	//Phone Length
+    	ph=ph.trim();
+    	if(ph.length<10){
+    	alert("Your phone number has "+ph.length+". Not Valid");
+        	return false;
+    	}		
+
+    	if (gen == "gen") {
+        	alert("Gender must be filled out");
+        	return false;
+    	}
+
+    	if (dob == "") {
+        	alert("Date of Birth must be filled out");
+        	return false;
+    	}
+
+    	//Professional Details
+    	if (ks == "") {
+        	alert("Key Skills must be filled out");
+        	return false;
+    	}
+
+    	if (te == "te") {
+        	alert("Experience must be filled out");
+        	return false;
+    	}
+
+    	if (fa == "fa") {
+        	alert("Functional Area must be filled out");
+        	return false;
+    	}
+
+	}
+	function isNumberKey(evt){	
+    	var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+        	return false;
+	
+        return true;
+	}
+	
+	function isAlphaKey(evt){	
+    	var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 91) && (charCode < 97 || charCode > 122))
+        return false;
+
+         return true;
+      }
+
+	//Password checking
+	function isPass(){	
+	var pwd = document.forms["myForm"]["pwd"].value;
+	var rpwd = document.forms["myForm"]["rpwd"].value;	
+        if(pwd==rpwd){  
+	return true;
+	}  
+	else{  
+	alert("password must be same!");  
+	document.forms["myForm"]["pwd"].value="";
+	document.forms["myForm"]["rpwd"].value="";
+	return false;  
+	} 
+	}
+	
+	function onClickHandler(chkTxt)
+	{
+  		var txtrepl = document.getElementById("submit");
+  		txtrepl.disabled = chkTxt.checked ? false : true;
+    	if (!txtrepl.disabled) 
+    	{
+        	txtrepl.focus();
+    	}
+ 	}
+
+ 	function fyi()
+ 	{
+ 		if(u=="" || x="" || ph=="")
+ 		{
+ 			alert("* FIelds must be filled out");
+ 			return false;
+ 		}
+ 	}
+</script>
+</head>
+<body bgcolor="black" color="white">
+<div id="nw">
+<img src="logo.jpg" height="200" width="200">
+</div>
+<div id= "sec1">
+<p><center><h1><marquee>REGISTRATION FORM</marquee></h1></center></p>
+</div>
+<div id="sec2">
+	<form name="myForm" action="#" onSubmit="return validate()" method="post"><center>
+	<table align="center">
+	<tr>
+	<td colspan="3"><center><h3>-: Create Your Account :-</h3></center></td>
+	</tr>
+	<tr>
+	<td>Username:</td>
+	<td><input type="text" name="uname" placeholder="Enter a userame" />(*)</td>
+	<td><div style="color:red"> Username should be alphanumeric</div></td>
+	</tr>
+	<tr>
+	<td>Password:</td>
+	<td><input type="password" name="pwd" placeholder="Enter a Password" />(*)</td>
+	</tr>
+	<tr>
+	<td>Confirm Password:</td>
+	<td><input type="password" name="rpwd" onBlur="return isPass()" placeholder="Enter a Password" />(*)</td>
+	</tr>
+	<tr>
+	<td>Email:</td>
+	<td colspan="2"><input type="text" name="email" placeholder="Enter your email" />(*)</td>
+	</tr>
+	<tr>
+	<td colspan="3"><center><h3><br/>-: Personal Details :-</h3></center></td>
+	</tr>
+	<tr>
+	<td>First Name:</td>
+	<td colspan="2"><input type="text" name="fname" onKeyPress="return isAlphaKey(event)" placeholder="Enter a First Name" />(*)</td>
+	</tr>
+	<tr>
+	<td>Last Name:</td>
+	<td colspan="2"><input type="text" name="lname" onKeyPress="return isAlphaKey(event)" placeholder="Enter a Last Name" /></td>
+	</tr>
+	<tr>
+	<td>Location:</td>
+	<td><select name="loc">
+	<option value="loc">Select Location</option>
+	<option value="1">Kolkata</option>
+	<option value="2">Delhi</option>
+	<option value="3">Mumbai</option>
+	<option value="4">Bangalore</option>
+	<option value="5">Hyderabad</option>
+	</select>(*)
+	</td>
+	</tr>
+	<tr>
+	<td>Mobile No.:</td>
+	<td colspan="1"><input type="text" name="phone" onKeyPress="return isNumberKey(event)" placeholder="Enter a Mobile number" />(*)</td>
+	<td><center><div style="color:red"> Should not exceed 10 digits </div></center></td>
+	</tr>	
+	<tr>
+	<td>I am :</td>
+	<td><select name="gen">
+	<option value="gen">Select Gender</option>
+	<option value="1">Male</option>
+	<option value="2">Female</option>
+	<option value="3">Third Gender</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td>Date of Birth:</td>
+	<td><textarea name="dob" rows="1" cols="8"></textarea></td>
+	<td><center><div style="color:red">(ddmmyyyy format ONLY)</div></center>(*)</td>
+	</tr>
+	<tr>
+	<td colspan="3"><center><h3><br/>-: Professional Details :-</h3></center></td>
+	</tr>
+	<tr>
+	<td>Key Skills:</td>
+	<td><textarea name="dob" rows="3" cols="37"></textarea>(*)</td>
+	</tr>
+	<tr>
+	<td>Total Experience:</td>
+	<td><select name="ex">
+	<option value="ex">Select Experience (in years)</option>
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="24">24</option>
+	<option value="25">25</option>
+	<option value="26">26</option>
+	<option value="27">27</option>
+	<option value="28">28</option>
+	<option value="29">29</option>
+	<option value="30">30</option>
+	<option value="unspecified">unspecified</option>
+	</select>(*)
+	</td>
+	</tr>
+	<tr>
+	<td>Function Area:</td>
+	<td><select name="fa">
+	<option value="fa">Select Functional Area</option>
+	<option value="1">1.Web Development (Frontend & Backend)</option>
+	<option value="2">2.Android App Development</option>
+	<option value="3">3.IOS App Development</option>
+	<option value="4">4.Both 2 and 3</option>
+	<option value="5">5.Something Else</option>
+	</select>
+	</td>
+	</tr>
+	<tr>
+	<td colspan="3"><center><h3><br/>-: Educational Qualification :-</h3></center></td>
+	</tr>
+	<tr>
+	<td>School Examination:</td>
+	<td><select name="se">
+	<option value="se">Select School Qualification</option>
+	<option value="1">N/A</option>
+	<option value="2">Class 10</option>
+	<option value="3">Class 12</option>
+	<option value="4">before Class 10</option>
+	</select>(*)
+	</td>
+	<td>Year:<textarea name="yr1" rows="1" cols="4"></textarea></td>
+	</tr>
+	<tr>
+	<td>Under Graduate:</td>
+	<td><select name="se">
+	<option value="1">N/A</option>
+	<option value="2">Class 10</option>
+	<option value="3">Class 12</option>
+	<option value="4">before Class 10</option>
+	</select>(*)
+	</td>
+	<td>Year:<textarea name="yr2" rows="1" cols="4"></textarea></td>
+	</tr>
+	<tr>
+	<td>Post Graduate:</td>
+	<td><select name="pg">
+	<option value="1">N/A</option>
+	<option value="2">Class 10</option>
+	<option value="3">Class 12</option>
+	<option value="4">before Class 10</option>
+	</select>(*)
+	</td>
+	<td>Year:<textarea name="yr3" rows="1" cols="4"></textarea></td>
+	</tr>
+	<tr>
+	<td>Doctorate/PhD:</td>
+	<td><select name="se">
+	<option value="1">N/A</option>
+	<option value="2">Class 10</option>
+	<option value="3">Class 12</option>
+	<option value="4">before Class 10</option>
+	</select>(*)
+	</td>
+	<td>Year:<textarea name="yr4" rows="1" cols="4"></textarea></td>
+	</tr>	
+	<tr>
+	<td colspan="3"><center><input type="checkbox" name="chck_repl" onClick="onClickHandler(this)" /> I agree to all terms and conditions </td>
+	</center>
+	</tr>
+	<tr>
+	<td colspan="3"><center><input type="Reset"/><input type="submit" id="submit" value="Submit" disabled="disabled" onClick="return fyi()"/></center></td>
+	</tr>
+	</table>
+	</center>
+	</form>
+	<center><span style="color: red">*Compulsary Fields</span></center>
+	</div>
+</body>
+</html>
